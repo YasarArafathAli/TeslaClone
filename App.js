@@ -1,12 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View,FlatList  } from 'react-native';
+import CarScreen from './src/CarScreen'
+import cars from './src/cars'
+
+const baseUrl = './assets/images/'
 
 export default function App() {
   return (
+    
+    
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+<CarScreen image= {baseUrl + "ModelS.jpeg"} title= "Model S" tag="Starting at $69,900"/>
+      {/* <FlatList
+        keyExtractor={(car) => car.name}
+        data={cars}
+        renderItem={item => <CarScreen image={item.image} title= {item.name} tag={ item.tagline}/>}
+    /> */}
+      
       <StatusBar style="auto" />
+      
     </View>
   );
 }
@@ -14,8 +27,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  }
 });
